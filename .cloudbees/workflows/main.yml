@@ -11,3 +11,9 @@ jobs:
       - name: checkout
         uses: cloudbees-io/checkout@v1
       - uses: docker://cypress/browsers:node16.16.0-chrome105-ff104-edge
+        run: |
+          yarn install
+          yarn types
+          yarn lint
+          yarn test:unit:ci
+          yarn build:ci
